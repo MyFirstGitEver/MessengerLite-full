@@ -13,11 +13,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.messengerlite.R;
-import com.example.messengerlite.Tools;
+import com.example.messengerlite.commontools.Tools;
 import com.example.messengerlite.adapters.RegisterPagerAdapter;
 import com.example.messengerlite.viewmodels.MainViewModel;
-
-import java.util.Date;
 
 public class BirthDayFragment extends Fragment
 {

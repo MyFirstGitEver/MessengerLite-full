@@ -3,6 +3,40 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable-v24/round_bg.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/blue_stroke_bg.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/bottom_line.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_bubble.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_call.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_chat_bubble.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_message_icon.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_messenger.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_search.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_storage.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/ic_tick.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/loading.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/drawable/tab_selector.xml" value="0.1615" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_like.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_link.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_media_picture.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_noti.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_picture.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_stamp.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_system_picture.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_text.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/a_user.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/an_audio.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/an_info.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/drawer_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/image_view_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/loading_more.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/main_chat_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/personal_wall_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/picture_sheet.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/record_sheet.xml" value="0.264" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/search_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/storage_fragment.xml" value="0.22826086956521738" />
+        <entry key="..\:/DoAnCaNhan/MessengerLite-complete/app/src/main/res/layout/storage_view_fragment.xml" value="0.22826086956521738" />
         <entry key="..\:/DoAnCaNhan/MessengerLite2/app/src/main/res/drawable/four_corner_bg.xml" value="0.1615" />
         <entry key="..\:/DoAnCaNhan/MessengerLite2/app/src/main/res/drawable/ic_add.xml" value="0.1615" />
         <entry key="..\:/DoAnCaNhan/MessengerLite2/app/src/main/res/drawable/ic_black_camera.xml" value="0.1615" />

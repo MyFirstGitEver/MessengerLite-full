@@ -1,13 +1,11 @@
 package com.example.messengerlite.services;
 
-import com.example.messengerlite.Tools;
+import com.example.messengerlite.commontools.Tools;
 import com.example.messengerlite.dtos.UserNameDTO;
 import com.example.messengerlite.entities.UserEntity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import retrofit2.Call;

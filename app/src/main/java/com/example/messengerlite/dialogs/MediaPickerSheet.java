@@ -7,7 +7,6 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -19,21 +18,14 @@ import androidx.lifecycle.ViewModelProvider;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
-import com.example.messengerlite.AuthenticationState;
-import com.example.messengerlite.CaptureUseCase;
+import com.example.messengerlite.commontools.constants.CaptureUseCase;
 import com.example.messengerlite.R;
 import com.example.messengerlite.fragments.image.ImageCaptureFragment;
-import com.example.messengerlite.interfaces.CaptureDoneListener;
 import com.example.messengerlite.interfaces.ChangeAuthenticationSceneListener;
-import com.example.messengerlite.services.UserService;
 import com.example.messengerlite.viewmodels.MainViewModel;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.Map;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MediaPickerSheet extends BottomSheetDialogFragment
 {

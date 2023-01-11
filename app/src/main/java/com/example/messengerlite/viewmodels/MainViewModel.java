@@ -3,7 +3,7 @@ package com.example.messengerlite.viewmodels;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.messengerlite.Tools;
+import com.example.messengerlite.commontools.Tools;
 import com.example.messengerlite.adapters.RegisterPagerAdapter;
 import com.example.messengerlite.dtos.InfoDTO;
 import com.example.messengerlite.dtos.UserNameDTO;

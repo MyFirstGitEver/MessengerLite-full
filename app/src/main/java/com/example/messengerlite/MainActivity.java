@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
+import com.example.messengerlite.commontools.constants.AuthenticationState;
 import com.example.messengerlite.fragments.authentication.PasswordFragment;
 import com.example.messengerlite.fragments.authentication.RegisterFragment;
 import com.example.messengerlite.fragments.authentication.UserNameFragment;
@@ -48,7 +49,15 @@ public class MainActivity extends AppCompatActivity implements ChangeAuthenticat
         else if(state == AuthenticationState.PASSWORD)
             new PasswordFragment().show(getSupportFragmentManager(), "password");
         else if(state == AuthenticationState.AUTHENTICATED)
-            new PersonalWallFragment().show(getSupportFragmentManager(), "personal wall");
+        {
+            PersonalWallFragment fragment = new PersonalWallFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("stranger", false);
+
+            fragment.setArguments(bundle);
+            fragment.show(getSupportFragmentManager(), "personal wall");
+        }
         else
             new RegisterFragment().show(getSupportFragmentManager(), "register");
     }

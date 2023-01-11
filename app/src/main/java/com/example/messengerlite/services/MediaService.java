@@ -1,6 +1,6 @@
 package com.example.messengerlite.services;
 
-import com.example.messengerlite.Tools;
+import com.example.messengerlite.commontools.Tools;
 import com.example.messengerlite.entities.WebLinkEntity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -10,8 +10,6 @@ import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;

@@ -182,11 +182,6 @@ public class InfoListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return lastClickPos;
     }
 
-    public void setLastClickPos(int lastClickPos)
-    {
-        this.lastClickPos = lastClickPos;
-    }
-
     public class InfoViewHolder extends RecyclerView.ViewHolder
     {
         ImageView typeImg;

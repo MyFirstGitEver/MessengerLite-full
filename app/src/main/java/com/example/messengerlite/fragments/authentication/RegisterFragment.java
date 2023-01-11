@@ -21,7 +21,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.example.messengerlite.AuthenticationState;
+import com.example.messengerlite.commontools.constants.AuthenticationState;
 import com.example.messengerlite.R;
 import com.example.messengerlite.adapters.RegisterPagerAdapter;
 import com.example.messengerlite.interfaces.ChangeAuthenticationSceneListener;

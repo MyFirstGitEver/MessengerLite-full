@@ -2,7 +2,6 @@ package com.example.messengerlite.fragments.image;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +15,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
-import com.example.messengerlite.CaptureUseCase;
+import com.example.messengerlite.commontools.constants.CaptureUseCase;
 import com.example.messengerlite.R;
 import com.example.messengerlite.entities.UserEntity;
-import com.example.messengerlite.interfaces.CaptureDoneListener;
-import com.example.messengerlite.services.UserService;
 import com.example.messengerlite.viewmodels.MainViewModel;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class ImageViewFragment extends DialogFragment
 {

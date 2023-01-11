@@ -30,7 +30,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
-import com.example.messengerlite.CaptureUseCase;
+import com.example.messengerlite.commontools.constants.CaptureUseCase;
 import com.example.messengerlite.R;
 import com.example.messengerlite.services.UserService;
 import com.example.messengerlite.viewmodels.MainViewModel;

@@ -19,7 +19,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
-import com.example.messengerlite.AuthenticationState;
+import com.example.messengerlite.commontools.constants.AuthenticationState;
 import com.example.messengerlite.R;
 import com.example.messengerlite.dtos.UserNameDTO;
 import com.example.messengerlite.entities.UserEntity;

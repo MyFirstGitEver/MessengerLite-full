@@ -41,29 +41,29 @@
 
     <LinearLayout
         android:id="@+id/editPane"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoTypeImg">
 
         <ImageButton
-            android:background="@android:color/transparent"
             android:id="@+id/editBtn"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginRight="10dp"
-            android:layout_width="30dp"
+            android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_pen" />
 
         <ImageButton
-            android:background="@android:color/transparent"
             android:id="@+id/deleteBtn"
-            android:layout_height="30dp"
             android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_delete" />
     </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.messengerlite;
+package com.example.messengerlite.commontools.constants;
 
 public class CaptureUseCase
 {

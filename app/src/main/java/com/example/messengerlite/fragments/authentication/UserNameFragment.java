@@ -15,7 +15,7 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.messengerlite.AuthenticationState;
+import com.example.messengerlite.commontools.constants.AuthenticationState;
 import com.example.messengerlite.R;
 import com.example.messengerlite.dtos.UserNameDTO;
 import com.example.messengerlite.interfaces.ChangeAuthenticationSceneListener;
