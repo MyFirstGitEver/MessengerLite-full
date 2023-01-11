@@ -53,7 +53,7 @@ public class MainChatViewModel extends ViewModel
         }
 
         if(filtered.size() != 0 && filtered.get(filtered.size() - 1).getMessage().getType() !=
-            MessageDTO.STAMP)
+                MessageDTO.STAMP)
         {
             MessageEntity msg = filtered.get(filtered.size() - 1).getMessage();
 
@@ -70,7 +70,10 @@ public class MainChatViewModel extends ViewModel
         else
             this.messages.getValue().addAll(filtered);
 
-        this.messages.getValue().add(null);
+        if(messages.size() == 10)
+            this.messages.getValue().add(null);
+        else
+            this.isLastPage.setValue(true);
 
         return offset;
     }

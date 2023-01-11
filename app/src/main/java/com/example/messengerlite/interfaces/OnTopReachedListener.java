@@ -21,7 +21,7 @@ public abstract class OnTopReachedListener extends RecyclerView.OnScrollListener
         int visibleCount = manager.getChildCount();
 
         if(totalCount <= firstVisible + visibleCount && dy < 0)
-            onTopReached();
+                onTopReached();
     }
 
     public abstract void onTopReached();

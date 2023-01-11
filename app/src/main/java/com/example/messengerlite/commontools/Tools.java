@@ -10,6 +10,7 @@ import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.TimeZone;
 
 public class Tools
 {
@@ -34,24 +35,19 @@ public class Tools
         if(date == null)
             return "Trống";
 
-        Calendar calendar = GregorianCalendar.getInstance();
-        calendar.setTime(date);
-
-        return "Ng. " + calendar.get(Calendar.DAY_OF_MONTH) + ", Th. " +
-                (calendar.get(Calendar.MONTH) + 1) + ", " + calendar.get(Calendar.YEAR);
+        return "Ng. " + date.getDate() + ", Th. " +
+                (date.getMonth() + 1) + ", " + (date.getYear() + 1900);
     }
 
     public static String fromToday(Date date)
     {
         Date now = new Date();
-        Calendar calendar = GregorianCalendar.getInstance();
-        calendar.setTime(date);
 
-        if(now.getTime() - date.getTime() < A_DAY)
-            return printTime(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+        if(now.getDate() == date.getDate() && now.getTime() - date.getTime() < A_DAY)
+            return printTime(date.getHours(), date.getMinutes());
         else
             return convertToReadable(date) + ", " +
-                    printTime(calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE));
+                    printTime(date.getHours(), date.getMinutes());
     }
 
     public static String printTime(int hour, int min)

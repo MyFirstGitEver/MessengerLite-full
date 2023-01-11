@@ -1,6 +1,7 @@
 package com.example.messengerlite.dialogs;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -44,6 +45,8 @@ public class PictureSheet extends BottomSheetDialogFragment
     private final ActivityResultLauncher<String> requester = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
             granted -> getNextPage());
+
+    private Context context;
 
     @Nullable
     @Override
@@ -151,7 +154,7 @@ public class PictureSheet extends BottomSheetDialogFragment
                 MediaStore.Images.Media.HEIGHT,
                 MediaStore.Images.Media.DATE_ADDED };
 
-        Cursor cursor = getContext().getContentResolver().query(
+        Cursor cursor = context.getContentResolver().query(
                 uri,
                 projection, null, null, null);
 
@@ -189,5 +192,13 @@ public class PictureSheet extends BottomSheetDialogFragment
         super.onSaveInstanceState(outState);
 
         outState.putInt("count", ((PictureListAdapter)picList.getAdapter()).getPickCount());
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context)
+    {
+        super.onAttach(context);
+
+        this.context = context;
     }
 }

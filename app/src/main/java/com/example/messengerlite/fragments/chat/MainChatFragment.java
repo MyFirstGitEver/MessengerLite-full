@@ -3,6 +3,7 @@ package com.example.messengerlite.fragments.chat;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -42,7 +43,9 @@ import com.example.messengerlite.interfaces.OnTopReachedListener;
 import com.example.messengerlite.services.MessageService;
 import com.example.messengerlite.viewmodels.MainChatViewModel;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -88,8 +91,6 @@ public class MainChatFragment extends DialogFragment
     public void onDismiss(@NonNull DialogInterface dialog)
     {
         super.onDismiss(dialog);
-
-
 
         if(!mainChatViewModel.checkIfAnyChangesHappen())
             getParentFragmentManager().setFragmentResult("turn off", null);
@@ -147,7 +148,6 @@ public class MainChatFragment extends DialogFragment
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2)
             {
-
             }
 
             @Override
@@ -206,7 +206,7 @@ public class MainChatFragment extends DialogFragment
 
 
             ((MessageListAdapter)messageList.getAdapter()).insertNewMessage(new MessageDTO(true, msg));
-            messageList.smoothScrollToPosition(mainChatViewModel.getLastPosition());
+            messageList.smoothScrollToPosition(0);
 
             Bundle bundle = new Bundle();
             bundle.putParcelable("message", msg);
@@ -214,6 +214,7 @@ public class MainChatFragment extends DialogFragment
         });
 
         LinearLayoutManager manager = new LinearLayoutManager(context);
+
         manager.setStackFromEnd(true);
         manager.setReverseLayout(true);
 
@@ -283,7 +284,7 @@ public class MainChatFragment extends DialogFragment
                             return;
 
                         ((MessageListAdapter)messageList.getAdapter()).insertNewMessage(dto);
-                        messageList.smoothScrollToPosition(mainChatViewModel.getLastPosition());
+                        messageList.smoothScrollToPosition(0);
                     }
                 });
 
@@ -301,7 +302,7 @@ public class MainChatFragment extends DialogFragment
                         getArguments().getInt("myUser"),
                         ((UserEntity)getArguments().getParcelable("other")).getId());
 
-                messageList.smoothScrollToPosition(mainChatViewModel.getLastPosition());
+                messageList.smoothScrollToPosition(0);
             }
         });
     }
@@ -324,22 +325,17 @@ public class MainChatFragment extends DialogFragment
                     messageList.getAdapter().notifyItemRemoved(lastSize);
                 }
 
-                if(response.body() == null || response.body().size() == 0)
-                    mainChatViewModel.setLastPage(true);
+                int offset = mainChatViewModel.concat(response.body());
+
+                if(lastSize == -1)
+                {
+                    messageList.getAdapter().notifyDataSetChanged();
+                    messageList.smoothScrollToPosition(0);
+                }
                 else
                 {
-                    int offset = mainChatViewModel.concat(response.body());
-
-                    if(lastSize == -1)
-                    {
-                        messageList.getAdapter().notifyDataSetChanged();
-                        messageList.smoothScrollToPosition(0);
-                    }
-                    else
-                    {
-                        for(int i=lastSize;i<=lastSize + response.body().size() + offset;i++) // including null
-                            messageList.getAdapter().notifyItemInserted(i);
-                    }
+                    for(int i=lastSize;i<=lastSize + response.body().size() + offset;i++) // including null
+                        messageList.getAdapter().notifyItemInserted(i);
                 }
             }
 
@@ -369,6 +365,9 @@ public class MainChatFragment extends DialogFragment
 
         dialog.getWindow().setWindowAnimations(R.style.slideStyle);
         dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
+
+        dialog.getWindow().
+                setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
         return dialog;
     }
