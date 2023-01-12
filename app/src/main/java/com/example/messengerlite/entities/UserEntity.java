@@ -42,7 +42,11 @@ public class UserEntity implements Parcelable
         avatarPath = in.readString();
         workingCity = in.readString();
         hometown = in.readString();
-        birthDay = new Date(in.readLong());
+
+        long time = in.readLong();
+
+        if(time != -1)
+            birthDay = new Date(time);
     }
 
     public Integer getId() {
@@ -144,6 +148,10 @@ public class UserEntity implements Parcelable
         parcel.writeString(avatarPath);
         parcel.writeString(workingCity);
         parcel.writeString(hometown);
-        parcel.writeLong(birthDay.getTime());
+
+        if(birthDay != null)
+            parcel.writeLong(birthDay.getTime());
+        else
+            parcel.writeLong(-1);
     }
 }

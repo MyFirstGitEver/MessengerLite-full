@@ -89,9 +89,9 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 -1,
                 false, false, false, picture.getPath(), new Date());
 
-        messages.add(new PictureMessageDTO(true, message,
+        messages.add(0, new PictureMessageDTO(true, message,
                 picture.getDimension().first, picture.getDimension().second));
-        notifyItemInserted(messages.size() - 1);
+        notifyItemInserted(0);
     }
 
     @Override

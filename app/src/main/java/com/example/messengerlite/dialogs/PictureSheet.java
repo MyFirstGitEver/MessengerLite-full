@@ -156,7 +156,8 @@ public class PictureSheet extends BottomSheetDialogFragment
 
         Cursor cursor = context.getContentResolver().query(
                 uri,
-                projection, null, null, null);
+                projection, "bucket_display_name = ? OR bucket_display_name = ?",
+                new String[] {"Camera", "Screenshots"}, "date_added desc");
 
         int dataCol = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
         int dateCol = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_ADDED);
@@ -176,14 +177,6 @@ public class PictureSheet extends BottomSheetDialogFragment
         pictures.add(null);
 
         return cursor.getCount() == 0;
-    }
-
-    private String getLastStamp()
-    {
-        if(pictures.size() == 0)
-            return "0";
-
-        return Long.toString(pictures.get(pictures.size() - 1).getEpochTimeStamp());
     }
 
     @Override

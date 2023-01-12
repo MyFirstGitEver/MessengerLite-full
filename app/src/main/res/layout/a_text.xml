@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/round_bg"
         android:padding="10dp"
+        android:maxWidth="200dp"
         android:backgroundTint="@color/greatergray"
         android:textColor="@color/white"
         android:text="textView"/>
