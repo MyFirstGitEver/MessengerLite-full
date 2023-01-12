@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MainChatViewModel extends ViewModel
 {
-    private static final int TEN_MINUTES = 300_000;
+    private static final int FIVE_MINUTES = 300_000;
 
     private MutableLiveData<List<MessageDTO>> messages = new MutableLiveData<>(null);
     private MutableLiveData<Integer> pageNumber = new MutableLiveData<>(0);
@@ -36,37 +36,24 @@ public class MainChatViewModel extends ViewModel
                 filtered.add(message);
         }
 
-        if(getLastSeen() != null)
+        if(getLastSeen() != null && messages.size() != 0)
         {
-            long diff = getLastSeen().getDate().getTime() -
-                    this.messages.getValue().get(0).getMessage().getDate().getTime();
-
-            if(diff >= TEN_MINUTES)
-            {
-                filtered.add(0, new MessageDTO(
-                        MessageDTO.STAMP,
-                        Tools.fromToday(this.messages.getValue().get(0).getMessage().getDate())));
-                offset++;
-            }
+            offset += addStamp(
+                    filtered,
+                    getLastSeen().getDate().getTime() - messages.get(0).getMessage().getDate().getTime(),
+                    Tools.fromToday(getLastSeen().getDate()), 0);
         }
 
         for(int i=0;i<filtered.size() - 1;i++)
         {
             MessageDTO message = filtered.get(i);
+            MessageDTO nextMessage = filtered.get(i + 1);
 
             if(message.getMessage().getType() == MessageDTO.STAMP)
                 continue;
 
-            MessageDTO nextMessage = filtered.get(i + 1);
-
-            if(message.getMessage().getDate().getTime() -
-                    nextMessage.getMessage().getDate().getTime() >= TEN_MINUTES)
-            {
-                filtered.add(i + 1, new MessageDTO(
-                        MessageDTO.STAMP,
-                        Tools.fromToday(message.getMessage().getDate())));
-                offset++;
-            }
+            offset += addStamp(filtered, message.getMessage().getDate().getTime() -
+                    nextMessage.getMessage().getDate().getTime(), Tools.fromToday(message.getMessage().getDate()), i + 1);
         }
 
         if(this.messages.getValue() == null)
@@ -78,6 +65,10 @@ public class MainChatViewModel extends ViewModel
             this.messages.getValue().add(null);
         else
         {
+            Date lastDate = filtered.get(filtered.size() - 1).getMessage().getDate();
+
+            this.messages.getValue().add(new MessageDTO(MessageDTO.STAMP, Tools.fromToday(lastDate)));
+            offset++;
 
             this.isLastPage.setValue(true);
         }
@@ -164,9 +155,23 @@ public class MainChatViewModel extends ViewModel
 
     private MessageEntity getLastSeen()
     {
-        if(this.messages.getValue() == null || this.messages.getValue().size() == 0)
+        List<MessageDTO> list = messages.getValue();
+
+        if(list == null || list.size() == 0 ||
+                list.get(list.size() - 1).getMessage().getType() == MessageDTO.STAMP)
             return null;
 
         return this.messages.getValue().get(messages.getValue().size() - 1).getMessage();
+    }
+
+    private int addStamp(List<MessageDTO> filtered, long diff, String stamp, int insertPos)
+    {
+        if(diff >= FIVE_MINUTES)
+        {
+            filtered.add(insertPos, new MessageDTO(MessageDTO.STAMP, stamp));
+            return 1;
+        }
+
+        return 0;
     }
 }
