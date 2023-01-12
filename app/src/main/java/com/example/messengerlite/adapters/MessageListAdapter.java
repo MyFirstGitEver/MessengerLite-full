@@ -73,11 +73,11 @@ public class MessageListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 messages.get(0).getMessage().getDate().getTime() >= TEN_MINUTES)
         {
             messages.add(0, new MessageDTO(MessageDTO.STAMP, Tools.fromToday(now)));
-            notifyItemInserted(messages.size() - 1);
+            notifyItemInserted(0);
         }
 
-        messages.add(msg);
-        notifyItemInserted(messages.size() - 1);
+        messages.add(0, msg);
+        notifyItemInserted(0);
     }
 
     public void insertNewImage(SystemPictureDTO picture, int from, int to)

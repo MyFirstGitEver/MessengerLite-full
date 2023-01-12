@@ -136,7 +136,13 @@ public class MainChatViewModel extends ViewModel
 
     public MessageDTO getLastMessage()
     {
-        return messages.getValue().get(getLastPosition());
+        for(MessageDTO message : messages.getValue())
+        {
+            if(message.getMessage().getType() != MessageDTO.STAMP)
+                return message;
+        }
+
+        return null;
     }
 
     public void notifyChanges()
