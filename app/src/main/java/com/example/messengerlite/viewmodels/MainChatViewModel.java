@@ -65,12 +65,15 @@ public class MainChatViewModel extends ViewModel
             this.messages.getValue().add(null);
         else
         {
-            Date lastDate = filtered.get(filtered.size() - 1).getMessage().getDate();
-
-            this.messages.getValue().add(new MessageDTO(MessageDTO.STAMP, Tools.fromToday(lastDate)));
-            offset++;
-
             this.isLastPage.setValue(true);
+
+            if(messages.size() != 0)
+            {
+                Date lastDate = filtered.get(filtered.size() - 1).getMessage().getDate();
+
+                this.messages.getValue().add(new MessageDTO(MessageDTO.STAMP, Tools.fromToday(lastDate)));
+                offset++;
+            }
         }
 
         return offset;
