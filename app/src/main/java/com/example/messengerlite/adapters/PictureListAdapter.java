@@ -90,6 +90,14 @@ public class PictureListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         });
     }
 
+    public String getLastStamp()
+    {
+        if(pictures.size() == 0)
+            return "0";
+
+        return Long.toString(pictures.get(pictures.size() - 1).getEpochTimeStamp());
+    }
+
     @Override
     public int getItemCount()
     {

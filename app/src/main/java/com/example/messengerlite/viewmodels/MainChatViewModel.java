@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MainChatViewModel extends ViewModel
 {
-    private static final int TEN_MINUTES = 600000;
+    private static final int TEN_MINUTES = 300_000;
 
     private MutableLiveData<List<MessageDTO>> messages = new MutableLiveData<>(null);
     private MutableLiveData<Integer> pageNumber = new MutableLiveData<>(0);
@@ -36,9 +36,27 @@ public class MainChatViewModel extends ViewModel
                 filtered.add(message);
         }
 
+        if(getLastSeen() != null)
+        {
+            long diff = getLastSeen().getDate().getTime() -
+                    this.messages.getValue().get(0).getMessage().getDate().getTime();
+
+            if(diff >= TEN_MINUTES)
+            {
+                filtered.add(0, new MessageDTO(
+                        MessageDTO.STAMP,
+                        Tools.fromToday(this.messages.getValue().get(0).getMessage().getDate())));
+                offset++;
+            }
+        }
+
         for(int i=0;i<filtered.size() - 1;i++)
         {
             MessageDTO message = filtered.get(i);
+
+            if(message.getMessage().getType() == MessageDTO.STAMP)
+                continue;
+
             MessageDTO nextMessage = filtered.get(i + 1);
 
             if(message.getMessage().getDate().getTime() -
@@ -47,23 +65,9 @@ public class MainChatViewModel extends ViewModel
                 filtered.add(i + 1, new MessageDTO(
                         MessageDTO.STAMP,
                         Tools.fromToday(message.getMessage().getDate())));
-                i++;
                 offset++;
             }
         }
-
-        if(filtered.size() != 0 && filtered.get(filtered.size() - 1).getMessage().getType() !=
-                MessageDTO.STAMP)
-        {
-            MessageEntity msg = filtered.get(filtered.size() - 1).getMessage();
-
-            filtered.add(new MessageDTO(
-                    MessageDTO.STAMP,
-                    Tools.fromToday(msg.getDate())));
-
-            offset++;
-        }
-
 
         if(this.messages.getValue() == null)
             this.messages.setValue(filtered);
@@ -73,7 +77,10 @@ public class MainChatViewModel extends ViewModel
         if(messages.size() == 10)
             this.messages.getValue().add(null);
         else
+        {
+
             this.isLastPage.setValue(true);
+        }
 
         return offset;
     }
@@ -153,5 +160,13 @@ public class MainChatViewModel extends ViewModel
     public boolean checkIfAnyChangesHappen()
     {
         return anyChanges.getValue();
+    }
+
+    private MessageEntity getLastSeen()
+    {
+        if(this.messages.getValue() == null || this.messages.getValue().size() == 0)
+            return null;
+
+        return this.messages.getValue().get(messages.getValue().size() - 1).getMessage();
     }
 }

@@ -40,11 +40,9 @@ public class PictureSheet extends BottomSheetDialogFragment
 
     private List<SystemPictureDTO> pictures;
 
-    private boolean isLoading, isLastPage;
-
     private final ActivityResultLauncher<String> requester = registerForActivityResult(
             new ActivityResultContracts.RequestPermission(),
-            granted -> getNextPage());
+            granted -> getAll());
 
     private Context context;
 
@@ -82,43 +80,12 @@ public class PictureSheet extends BottomSheetDialogFragment
                     sendBtn.setVisibility(View.VISIBLE);
             }
         }, pickCount));
-        picList.addOnScrollListener(new OnEndReachedListener()
-        {
-            @Override
-            public void onEndReached()
-            {
-                isLoading = true;
-
-                Handler handler = new Handler(Looper.getMainLooper());
-
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run()
-                    {
-                        isLastPage = getNextPage();
-                        isLoading = false;
-                    }
-                }, 1300);
-            }
-
-            @Override
-            public boolean isLastPage()
-            {
-                return isLastPage;
-            }
-
-            @Override
-            public boolean isLoading()
-            {
-                return isLoading;
-            }
-        });
 
         if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE) ==
                 PackageManager.PERMISSION_DENIED)
             requester.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
         else
-            getNextPage();
+            getAll();
 
         sendBtn.setOnClickListener(v ->
         {
@@ -135,7 +102,7 @@ public class PictureSheet extends BottomSheetDialogFragment
         });
     }
 
-    private boolean getNextPage()
+    private void getAll()
     {
         int last = pictures.size();
 
@@ -156,8 +123,7 @@ public class PictureSheet extends BottomSheetDialogFragment
 
         Cursor cursor = context.getContentResolver().query(
                 uri,
-                projection, "bucket_display_name = ? OR bucket_display_name = ?",
-                new String[] {"Camera", "Screenshots"}, "date_added desc");
+                projection, null, null, "date_added desc");
 
         int dataCol = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
         int dateCol = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATE_ADDED);
@@ -172,11 +138,7 @@ public class PictureSheet extends BottomSheetDialogFragment
                     new Pair<>(cursor.getInt(widthCol), cursor.getInt(heightCol))));
         }
 
-        picList.getAdapter().notifyItemRangeChanged(last, pictures.size() - 1);
-
-        pictures.add(null);
-
-        return cursor.getCount() == 0;
+        picList.getAdapter().notifyDataSetChanged();
     }
 
     @Override
