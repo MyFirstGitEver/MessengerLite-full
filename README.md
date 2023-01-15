@@ -13,6 +13,7 @@ Database sử dụng: MySQL. App truy vấn thông tin thông qua REST request(s
 [Android SDK](https://vi.wikipedia.org/wiki/Android_SDK)  
 [Retrofit](https://square.github.io/retrofit/)  
 [WebSocket](https://en.wikipedia.org/wiki/WebSocket)  
+[WebSocket Client](https://github.com/TakahikoKawasaki/nv-websocket-client)  
 
 # Hướng dẫn chạy project
 Yêu cầu cài sẵn Android studio để chạy thử project.
