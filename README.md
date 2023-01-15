@@ -32,6 +32,8 @@ Yêu cầu cài sẵn Android studio để chạy thử project.
 * implementation 'com.squareup.retrofit2:retrofit:2.9.0'
 * implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 * implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
+* implementation 'com.github.NaikSoftware:StompProtocolAndroid:1.6.6'
+* implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.21'
 
 # Cấu trúc project
 * Activities: package lưu các activity chính trong app.
