@@ -10,9 +10,9 @@ App được xây dựng bằng framework Android SDK, Ngôn ngữ sử dụng: 
 
 Database sử dụng: MySQL. App truy vấn thông tin thông qua REST request(sử dụng retrofit để trừu tượng hóa quá trình gửi request) và sử dụng WebSocket để gửi/nhận tin nhắn.
 
-[Android SDK](https://vi.wikipedia.org/wiki/Android_SDK)
-[Retrofit](https://square.github.io/retrofit/)
-[WebSocket](https://en.wikipedia.org/wiki/WebSocket)
+[Android SDK](https://vi.wikipedia.org/wiki/Android_SDK)  
+[Retrofit](https://square.github.io/retrofit/)  
+[WebSocket](https://en.wikipedia.org/wiki/WebSocket)  
 
 # Hướng dẫn chạy project
 Yêu cầu cài sẵn Android studio để chạy thử project.
@@ -28,6 +28,10 @@ Yêu cầu cài sẵn Android studio để chạy thử project.
 * implementation "androidx.camera:camera-camera2:${camerax_version}"
 * implementation "androidx.camera:camera-lifecycle:${camerax_version}"
 * implementation "androidx.camera:camera-view:${camerax_version}"
+* implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+* implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+* implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+* implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.2.0'
 
 # Cấu trúc project
 * Activities: package lưu các activity chính trong app.
