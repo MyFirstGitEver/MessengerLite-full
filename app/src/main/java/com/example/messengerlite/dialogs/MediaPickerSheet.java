@@ -31,8 +31,6 @@ public class MediaPickerSheet extends BottomSheetDialogFragment
 {
     private AppCompatButton libBtn, newBtn;
 
-    private ChangeAuthenticationSceneListener listener;
-
     private final UploadCallback uploadCallback = new UploadCallback()
     {
         @Override
