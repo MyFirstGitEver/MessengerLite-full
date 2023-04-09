@@ -31,8 +31,6 @@ public class MediaPickerSheet extends BottomSheetDialogFragment
 {
     private AppCompatButton libBtn, newBtn;
 
-    private ChangeAuthenticationSceneListener listener;
-
     private final UploadCallback uploadCallback = new UploadCallback()
     {
         @Override
@@ -115,13 +113,5 @@ public class MediaPickerSheet extends BottomSheetDialogFragment
             fragment.setArguments(bundle);
             fragment.show(requireActivity().getSupportFragmentManager(), "capture");
         });
-    }
-
-    @Override
-    public void onAttach(@NonNull Context context)
-    {
-        super.onAttach(context);
-
-        listener = (ChangeAuthenticationSceneListener) context;
     }
 }
