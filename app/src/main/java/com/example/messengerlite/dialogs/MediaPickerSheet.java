@@ -116,12 +116,4 @@ public class MediaPickerSheet extends BottomSheetDialogFragment
             fragment.show(requireActivity().getSupportFragmentManager(), "capture");
         });
     }
-
-    @Override
-    public void onAttach(@NonNull Context context)
-    {
-        super.onAttach(context);
-
-        listener = (ChangeAuthenticationSceneListener) context;
-    }
 }
