@@ -44,8 +44,8 @@ Yêu cầu cài sẵn Android studio để chạy thử project.
 * Objects: package chứa các data model chia làm ba loại: entity(object tượng trưng bảng trong SQLite), DTO(object chứa nội dung hiển th trong các recyclerView) và các object khác
 * Fragments: package chứa các fragment hỗ trợ đa dạng các trang tương tác.
 * Interfaces: package chứa các lớp giao diện được sử dụng như callback bên trong các lớp Adapter
-
-Testing account: Duc-123 | Phuc-123
 * Services : Các service thực hiện REST request
 * Dtos : Các lớp đối tượng chứa thông tin của app.
-* Entities: Các lớp đối tượng tương ứng với bảng trong database
+* Entities: Các lớp đối tượng tương ứng với bảng trong database  
+
+Testing account: Duc-123 | Phuc-123
