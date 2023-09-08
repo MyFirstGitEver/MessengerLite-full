@@ -16,8 +16,8 @@ public class Tools
 {
     private static final long A_DAY = 86_400_000;
 
-    public static final String DOMAIN = "http://3.112.28.136:8081/";
-    public static final String IP_AND_PORT = "3.112.28.136:8081";
+    public static final String DOMAIN = "http://13.114.143.55:8080/";
+    public static final String IP_AND_PORT = "13.114.143.55:8080";
 
     public static Date getDateFromDatePicker(DatePicker datePicker){
         int day = datePicker.getDayOfMonth();
